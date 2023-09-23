@@ -4,8 +4,7 @@ Weather web app widget using `HTML, CSS, JS, OpenWeather API`
 Workflow:
 1. Structure HTML
 2. Style CSS
-3. API Call
-- using fetch; async & await method
+3. API Call - fetch(); async & await method
 4. Finishing Details
 
 ## OpenWeather API

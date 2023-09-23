@@ -8,35 +8,87 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
     </head>
-
     <body>
-        <div class="card">
-            <div class="search">
+        <div class="card">              <!-- Jumbotron -->
+            <div class="search">        <!-- Search Box -->
                 <input type="text" placeholder="Enter city name" spellcheck="false">
                 <button><img src="images/search_FILL0_wght400_GRAD0_opsz24.svg"></button>
             </div>
+            <div class="error">
+                <p>Invalid city name</p>
+            </div>
             <div class="weather">
+                <!-- Main -->
                 <img src="images/rainy_light_FILL0_wght400_GRAD0_opsz24.svg" class="weather-icon">
-                <h1 class="temp">69°F</h1>
-                <h2 class="city">Bakersfield</h2>
+                <h1 class="temp">--°C</h1>
+                <h2 class="city">City</h2>
                 <div class="details">
-                    <div class="col">
+                    <div class="col">       <!-- Humidity -->
                         <img src="images/humidity_mid_FILL0_wght400_GRAD0_opsz24.svg">
                         <div>
-                            <p class="humidity">50%</p>
+                            <p class="humidity">--%</p>
                             <p>Humidity</p>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col">       <!-- Wind Speed -->
                         <img src="images/air_FILL0_wght400_GRAD0_opsz24.svg">
                         <div>
-                            <p class="wind">15 km/h</p>
+                            <p class="wind">-- km/h</p>
                             <p>Wind Speed</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
 
+        <!-- JS API call using fetch -->
+        <script>
+            const apiKey = "bc7fc71a53d7e3ba95de58f32638efc5";
+            const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+            
+            const searchBox = document.querySelector(".search input");
+            const searchBtn = document.querySelector(".search button");
+            const weatherIcon = document.querySelector(".weather-icon");
+
+            // async and await method
+            async function checkWeather(city) {
+                const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+                if (response.status == 404) {
+                    document.querySelector(".error").style.display = "block";
+                    document.querySelector(".weather").style.display = "none";
+                } else {
+                    var data = await response.json();
+
+                    document.querySelector(".city").innerHTML = data.name;
+                    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                    document.querySelector(".humidity").innerHTML = data.main.humidity + "%"; 
+                    document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+
+                    if (data.weather[0].main == "Clouds") {
+                        weatherIcon.src = "images/cloud_FILL0_wght400_GRAD0_opsz24.svg";
+                    }
+                    else if (data.weather[0].main == "Clear") {
+                        weatherIcon.src = "images/sunny_FILL0_wght400_GRAD0_opsz24.svg";
+                    }
+                    else if (data.weather[0].main == "Rain") {
+                        weatherIcon.src = "images/rainy_FILL0_wght400_GRAD0_opsz24.svg";
+                    }
+                    else if (data.weather[0].main == "Drizzle") {
+                        weatherIcon.src = "images/rainy_light_FILL0_wght400_GRAD0_opsz24.svg";
+                    }
+                    else if (data.weather[0].main == "Mist") {
+                        weatherIcon.src = "images/mist_FILL0_wght400_GRAD0_opsz24.svg";
+                    }
+
+                    document.querySelector(".weather").style.display = "block";
+                    document.querySelector(".error").style.display = "none";
+                }
+            }
+            
+            searchBtn.addEventListener("click", ()=>{
+                checkWeather(searchBox.value);
+            })
+        </script>
+    </body>
 </html>

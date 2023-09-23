@@ -1,8 +1,6 @@
 # Simple Weather Web App
 Weather web app widget using `HTML, CSS, JS, OpenWeather API`
 
-![init](images/init.jpg)
-![searchBako](images/search1.jpg)
 ![searchSD](images/search2.jpg)
 
 Workflow:
@@ -22,3 +20,6 @@ OpenWeatherMap is an online service that provides global weather data via API, i
 ### Format
 Response format is JSON by default. To get data in XML format just set up  
 mode = xml.
+
+![init](images/init.jpg)
+![searchBako](images/search1.jpg)

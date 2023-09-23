@@ -1,6 +1,10 @@
 # Simple Weather Web App
 Weather web app widget using `HTML, CSS, JS, OpenWeather API`
 
+![init](init.jpg)
+![searchBako](search1.jpg)
+![searchSD](search3.jpg)
+
 Workflow:
 1. Structure HTML
 2. Style CSS

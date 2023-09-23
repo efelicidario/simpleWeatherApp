@@ -11,7 +11,7 @@
     <body>
         <div class="card">              <!-- Jumbotron -->
             <div class="search">        <!-- Search Box -->
-                <input type="text" placeholder="Enter city name" spellcheck="false">
+                <input type="text" id="searchBox" placeholder="Enter city name" spellcheck="false">
                 <button><img src="images/search_FILL0_wght400_GRAD0_opsz24.svg"></button>
             </div>
             <div class="error">
@@ -85,7 +85,7 @@
                     document.querySelector(".error").style.display = "none";
                 }
             }
-            
+
             searchBtn.addEventListener("click", ()=>{
                 checkWeather(searchBox.value);
             })

@@ -6,12 +6,17 @@ Weather web app widget using `HTML, CSS, JS, OpenWeather API`
 Workflow:
 1. Structure HTML
 2. Style CSS
-3. API Call - fetch(); async & await method
+3. JS API Call
 4. Finishing Details
 
 ## OpenWeather API
 OpenWeatherMap is an online service that provides global weather data via API, including current weather data, forecasts, nowcasts and historical weather data for any geographical location. The company provides a minute-by-minute hyperlocal precipitation forecast for any location.
 [Current weather data](https://openweathermap.org/current#name)
+
+### HOME / API / Current weather
+Other features
+    > Built-in geocoding
+        > Built-in API request by city name
 
 ### Built-in API request by city name
 **API call**  

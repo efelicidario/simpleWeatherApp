@@ -1,5 +1,7 @@
 # Simple Weather Web App
-Weather web app widget using `HTML, CSS, JS, OpenWeather API`
+Weather web app widget using `HTML, CSS, JS, OpenWeather API`  
+Built-in API request by city name  
+You can call by city name or city name, state code and country code. Please note that searching by states available only for the USA locations.
 
 ![searchSD](images/search2.jpg)
 

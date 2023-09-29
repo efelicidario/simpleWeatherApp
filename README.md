@@ -1,7 +1,11 @@
 # Simple Weather Web App
-Weather web app widget using `HTML, CSS, JS, OpenWeather API`  
-Built-in API request by city name  
-You can call by city name or city name, state code and country code. Please note that searching by states available only for the USA locations.
+Weather web app widget with one search box where user can enter the city name and get the weather information of the particular city, using `HTML, CSS, JS, OpenWeather API`  
+Obtained the current weather data from Fess API fey from OpenWeatherMap and display the weather information according to the city on our website or app.:
+- Temperature
+- Weather condition
+- Humidity
+- Wind Speed 
+We will display the weather info on website from Free API using JavaScript.  
 
 ![searchSD](images/search2.jpg)
 
@@ -21,6 +25,8 @@ Other features
         > Built-in API request by city name
 
 ### Built-in API request by city name
+You can call by city name or city name, state code and country code. Please note that searching by states available only for the USA locations.
+
 **API call**  
 `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
 
